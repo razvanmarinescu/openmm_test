@@ -17,7 +17,7 @@ system = psf.createSystem(params, nonbondedMethod=NoCutoff, nonbondedCutoff=1*na
 
 # 4fs ok, but need to keep constraints on HBonds (I think)
 # 5fs works, but need heavy hydrogens (mass redistribution from heavy atoms)
-integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 0.004*picoseconds)
+integrator = LangevinMiddleIntegrator(300*kelvin, 1/picosecond, 0.004*picoseconds)
 
 platform = Platform.getPlatformByName('CUDA')
 properties = {'DeviceIndex': '%s' % GPU_DEVICE} # implicit solvent doesn't support more than 1 GPU
